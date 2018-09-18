@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class DirtController : MonoBehaviour {
 
+    public GameObject smallPlant;
+
+    private bool hasBeenSeeded = false;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -16,10 +20,12 @@ public class DirtController : MonoBehaviour {
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == "Tool" && Input.GetKeyDown(KeyCode.Return))
+        //tool interacts with dirt
+        if (collision.gameObject.tag == "Tool" && Input.GetKeyDown(KeyCode.Return) && !hasBeenSeeded)
         {
-            Debug.Log("in if statement");
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            Instantiate(smallPlant, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
+            hasBeenSeeded = true;
         }
     }
 
