@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
+        //you use arrow keys/wasd and you face the way you're walking 
+
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
 
