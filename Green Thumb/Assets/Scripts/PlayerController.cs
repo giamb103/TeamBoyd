@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
+    public int movementSpeed; 
+
     void Update()
     {
-        //var x = Input.GetAxis("Horizontal") * Time.deltaTime * 3f;
-        var y = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
-        var z = Input.GetAxis("Vertical") * Time.deltaTime * 3f;
+        float moveHorizontal = Input.GetAxisRaw("Horizontal");
+        float moveVertical = Input.GetAxisRaw("Vertical");
 
-        transform.Rotate(0, y, 0);
-        transform.Translate(0, 0, z);
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        if (movement.magnitude > 0)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15F);
+        }
+
+        transform.Translate(movement * movementSpeed * Time.deltaTime, Space.World);
     }
 }
