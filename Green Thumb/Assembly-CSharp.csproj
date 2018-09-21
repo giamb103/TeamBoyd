@@ -51,8 +51,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\plantLife.cs" />
      <Compile Include="Assets\Scripts\DirtController.cs" />
+     <Compile Include="Assets\Scripts\Enemy\EnemyAi.cs" />
+     <Compile Include="Assets\Scripts\Enemy\EnemySpawning.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\Tower\BaseProjectiles.cs" />
+     <Compile Include="Assets\Scripts\Tower\Projectile.cs" />
+     <Compile Include="Assets\Scripts\Tower\RangeChecker.cs" />
+     <Compile Include="Assets\Scripts\Tower\ShootingSystem.cs" />
+     <Compile Include="Assets\Scripts\Tower\TrackingSystem.cs" />
+     <Compile Include="Assets\Scripts\Tower\TurretAi.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
