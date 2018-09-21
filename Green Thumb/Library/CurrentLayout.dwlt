@@ -41,8 +41,13 @@ MonoBehaviour:
     y: 30
     width: 1536
     height: 731
+<<<<<<< HEAD
   m_MinSize: {x: 581, y: 471}
   m_MaxSize: {x: 14004, y: 14042}
+=======
+  m_MinSize: {x: 579, y: 471}
+  m_MaxSize: {x: 14002, y: 14042}
+>>>>>>> sierra-branch
   vertical: 1
   controlID: 48
 --- !u!114 &3
@@ -129,8 +134,13 @@ MonoBehaviour:
     y: 0
     width: 1536
     height: 731
+<<<<<<< HEAD
   m_MinSize: {x: 581, y: 471}
   m_MaxSize: {x: 14004, y: 14042}
+=======
+  m_MinSize: {x: 579, y: 471}
+  m_MaxSize: {x: 14002, y: 14042}
+>>>>>>> sierra-branch
   vertical: 0
   controlID: 49
 --- !u!114 &7
@@ -224,8 +234,8 @@ MonoBehaviour:
     y: 0
     width: 762
     height: 454
-  m_MinSize: {x: 104, y: 121}
-  m_MaxSize: {x: 4004, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -279,8 +289,8 @@ MonoBehaviour:
     y: 0
     width: 448
     height: 731
-  m_MinSize: {x: 277, y: 71}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 22}
   m_Panes:
   - {fileID: 22}
@@ -448,9 +458,15 @@ MonoBehaviour:
     height: 433
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: 
     m_LastClickedID: 0
     m_ExpandedIDs: 40ebffffd6faffff00000000
+=======
+    m_SelectedIDs: f0060000
+    m_LastClickedID: 0
+    m_ExpandedIDs: 9efbffff00000000
+>>>>>>> sierra-branch
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -500,14 +516,14 @@ MonoBehaviour:
     width: 758
     height: 433
   m_SceneLighting: 1
-  lastFramingTime: 1500.0129523922312
+  lastFramingTime: 1162.7109359703143
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.3592386, y: -1.4262452, z: 5.932493}
+    m_Target: {x: 0.65750015, y: 1.115371, z: 7.59}
     speed: 2
-    m_Value: {x: 1.3592386, y: -1.4262452, z: 5.932493}
+    m_Value: {x: 0.65750015, y: 1.115371, z: 7.59}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -530,13 +546,17 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.29685766, y: 0.6633951, z: -0.32563636, w: -0.6047673}
+    m_Target: {x: -0.30987054, y: 0.03763471, z: -0.01227648, w: -0.94995433}
     speed: 2
+<<<<<<< HEAD
     m_Value: {x: -0.29685766, y: 0.66339505, z: -0.32563636, w: -0.6047673}
+=======
+    m_Value: {x: -0.30987057, y: 0.037634715, z: -0.012276481, w: -0.9499544}
+>>>>>>> sierra-branch
   m_Size:
-    m_Target: 9.546462
+    m_Target: 2.9617505
     speed: 2
-    m_Value: 9.546462
+    m_Value: 2.9617505
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -611,19 +631,33 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
+<<<<<<< HEAD
     - Assets
   m_ViewMode: 1
   m_StartGridSize: 74
   m_LastFolders:
   - Assets
+=======
+    - Assets/Scripts
+  m_ViewMode: 1
+  m_StartGridSize: 74
+  m_LastFolders:
+  - Assets/Scripts
+>>>>>>> sierra-branch
   m_LastFoldersGridSize: 74
   m_LastProjectPath: C:\Users\mgiam_000\Documents\TeamBoyd\Green Thumb
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: 50280000
     m_LastClickedID: 10320
     m_ExpandedIDs: 000000005028000000ca9a3bffffff7f
+=======
+    m_SelectedIDs: da270000
+    m_LastClickedID: 10202
+    m_ExpandedIDs: 000000007e27000000ca9a3bffffff7f
+>>>>>>> sierra-branch
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -651,7 +685,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 0000000050280000
+=======
+    m_ExpandedIDs: 000000007e270000
+>>>>>>> sierra-branch
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

@@ -136,4 +136,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2c5cd34e48a2ac48a67fd1c72337b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smallPlant: {fileID: 1627601690865248, guid: d392935bf3929ab4eab1d228184f488d, type: 2}
+  seed: {fileID: 1627601690865248, guid: d392935bf3929ab4eab1d228184f488d, type: 2}
+  timer: {fileID: 1172914465081240, guid: 5fa06618094b0d845bde17758b3dc625, type: 2}
