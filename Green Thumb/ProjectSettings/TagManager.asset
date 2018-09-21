@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Tool
+  - Enemy
+  - Plant
+  - Turret
   layers:
   - Default
   - TransparentFX
