@@ -56,12 +56,9 @@
      <Compile Include="Assets\Scripts\Enemy\EnemyAi.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemySpawning.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\Tower\BaseProjectiles.cs" />
-     <Compile Include="Assets\Scripts\Tower\Projectile.cs" />
-     <Compile Include="Assets\Scripts\Tower\RangeChecker.cs" />
-     <Compile Include="Assets\Scripts\Tower\ShootingSystem.cs" />
-     <Compile Include="Assets\Scripts\Tower\TrackingSystem.cs" />
-     <Compile Include="Assets\Scripts\Tower\TurretAi.cs" />
+     <Compile Include="Assets\Scripts\Timer.cs" />
+     <Compile Include="Assets\Scripts\Tower\Bullet.cs" />
+     <Compile Include="Assets\Scripts\Tower\Tower.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -83,6 +80,10 @@
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-UnityScript-firstpass.csproj">
+      <Project>{B43C2EE5-AF3E-45C9-46B6-C9DE104A75C7}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
