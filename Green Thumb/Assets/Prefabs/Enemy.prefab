@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 23583845896439498}
   - component: {fileID: 54388243046537132}
   - component: {fileID: 114708511991364914}
+  - component: {fileID: 114725666604585994}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -110,6 +111,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.05
+--- !u!114 &114725666604585994
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1215747435672050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e692626245f58f4fa6370f914052423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theTag: Bullet
 --- !u!136 &136252184714240928
 CapsuleCollider:
   m_ObjectHideFlags: 1

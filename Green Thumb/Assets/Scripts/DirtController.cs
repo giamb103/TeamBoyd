@@ -5,12 +5,14 @@ using UnityEngine;
 public class DirtController : MonoBehaviour {
 
     public GameObject seed;
-    public GameObject timer; 
+    public GameObject timer;
+    public GameObject tower;
 
     private bool hasBeenSeeded = false;
 
     private GameObject plantObject;
     private GameObject timerObject;
+    private GameObject defenseTower;
 
     // Use this for initialization
     void Start () {
@@ -46,6 +48,11 @@ public class DirtController : MonoBehaviour {
             plantObject = Instantiate(seed, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
             timerObject = Instantiate(timer, new Vector3(gameObject.transform.position.x - 0.5f, gameObject.transform.position.y + 1, gameObject.transform.position.z), Quaternion.identity);
             hasBeenSeeded = true;
+        }
+
+        if(collision.gameObject.tag == "Tool" && Input.GetKeyDown(KeyCode.T) && !hasBeenSeeded)
+        {
+            defenseTower = Instantiate(tower, new Vector3(gameObject.transform.position.x - 0.5f, gameObject.transform.position.y + 1, gameObject.transform.position.z), Quaternion.identity);
         }
     }
 

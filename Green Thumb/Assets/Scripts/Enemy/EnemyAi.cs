@@ -42,7 +42,14 @@ public class EnemyAi : MonoBehaviour
     {
         if (col.gameObject.tag == "Plant")
         {
+            Debug.Log("Collided");
             Destroy(col.gameObject);
+        }
+        
+        if(col.gameObject.tag == "Bullet")
+        {
+            Debug.Log("Collided");
+            Destroy(gameObject);
         }
     }
 }

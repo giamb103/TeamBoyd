@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    Transform enemy;
     public Transform gunEnd;
     public GameObject bullet;
 
     // Use this for initialization
     void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         GameObject[] validTargets = GameObject.FindGameObjectsWithTag("Enemy");
         GameObject curTarget = null;
@@ -26,13 +31,8 @@ public class Tower : MonoBehaviour
             }
         }
 
-        enemy = curTarget.transform;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        transform.LookAt(enemy);
+        Vector3 targetPos = new Vector3(curTarget.transform.position.x, transform.position.y, curTarget.transform.position.z);
+        transform.LookAt(targetPos);
     }
 
     void OnTriggerEnter(Collider col)
