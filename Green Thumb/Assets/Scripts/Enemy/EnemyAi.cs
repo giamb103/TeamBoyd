@@ -19,26 +19,27 @@ public class EnemyAi : MonoBehaviour
     void Update()
     {
         Vector3 start = transform.position;
-        GameObject[] validTargets = GameObject.FindGameObjectsWithTag("Plant");
+        GameObject[] validTargets = GameObject.FindGameObjectsWithTag("Plant");//array of all plants
         GameObject curTarget = null;
         float closestDist = 0.0f;
+		if (validTargets.Length != 0) {
+			for (int i = 0; i < validTargets.Length; i++) {//sort array so that closest plant is stored in array[0]
+				float dist = Vector3.Distance (transform.position, validTargets [i].transform.position);
 
-        for (int i = 0; i < validTargets.Length; i++)
-        {
-            float dist = Vector3.Distance(transform.position, validTargets[i].transform.position);
-
-            if (!curTarget || dist < closestDist)
-            {
-                curTarget = validTargets[i];
-                closestDist = dist;
-            }
-        }
-        Vector3 end = curTarget.transform.position;
-        Vector3 newPosition = Vector3.MoveTowards(start, end, speed);
-        rb.MovePosition(newPosition);
+				if (!curTarget || dist < closestDist) {
+					curTarget = validTargets [i];
+					closestDist = dist;
+				}
+			}
+		}
+		if (curTarget != null) {
+	        Vector3 end = curTarget.transform.position;//get the posiiton of closest plant
+	        Vector3 newPosition = Vector3.MoveTowards(start, end, speed);//move enemy towards plant
+			rb.MovePosition(newPosition);
+		}
     }
 
-    void onCollisionEnter(Collision col)
+    void onCollisionStay(Collision col)
     {
         if (col.gameObject.tag == "Plant")
         {

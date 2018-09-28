@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.AddRelativeForce(0, 0, speed, ForceMode.Impulse);
+        rb.AddRelativeForce(0, 0, speed, ForceMode.Impulse);//launch bullet
     }
 
     // Update is called once per frame

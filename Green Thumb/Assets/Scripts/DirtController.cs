@@ -52,7 +52,7 @@ public class DirtController : MonoBehaviour {
 
         if(collision.gameObject.tag == "Tool" && Input.GetKeyDown(KeyCode.T) && !hasBeenSeeded)
         {
-            defenseTower = Instantiate(tower, new Vector3(gameObject.transform.position.x - 0.5f, gameObject.transform.position.y + 1, gameObject.transform.position.z), Quaternion.identity);
+            defenseTower = Instantiate(tower, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z), Quaternion.identity);
         }
     }
 

@@ -54,7 +54,6 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -70,7 +69,6 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -138,3 +136,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seed: {fileID: 1627601690865248, guid: d392935bf3929ab4eab1d228184f488d, type: 2}
   timer: {fileID: 1172914465081240, guid: 5fa06618094b0d845bde17758b3dc625, type: 2}
+  tower: {fileID: 1363507973414824, guid: 7c2ca5db964ddc34780439f5cdb7e9d4, type: 2}
