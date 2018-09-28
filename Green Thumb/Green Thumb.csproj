@@ -77,12 +77,15 @@
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
     </Reference>
+<<<<<<< HEAD
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Common">
       <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
+=======
+>>>>>>> sierra-branch
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\plantLife.cs" />
@@ -90,11 +93,17 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyAi.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemySpawning.cs" />
     <Compile Include="Assets\Scripts\EnemyAI.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\Game Scripts\DayNight.cs" />
     <Compile Include="Assets\Scripts\Game Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Game Scripts\SetSunLight.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
+=======
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Timer.cs" />
+    <Compile Include="Assets\Scripts\ToolPickup.cs" />
+>>>>>>> sierra-branch
     <Compile Include="Assets\Scripts\Tower\BaseProjectiles.cs" />
     <Compile Include="Assets\Scripts\Tower\Projectile.cs" />
     <Compile Include="Assets\Scripts\Tower\RangeChecker.cs" />
