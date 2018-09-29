@@ -33,6 +33,8 @@ public class ToolPickup : MonoBehaviour {
         {
             Debug.Log("putting down object");
             gameObject.transform.parent = null;
+            Vector3 newpos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 1, gameObject.transform.position.z);
+            gameObject.transform.position = newpos;
             hasBeenGrabbed = false;
         }
     }
