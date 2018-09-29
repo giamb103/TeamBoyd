@@ -1,14 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-<<<<<<< HEAD
 # Visual Studio 2017
-=======
-<<<<<<< HEAD
-# Visual Studio 15
-=======
-# Visual Studio 2017
->>>>>>> sierra-branch
->>>>>>> master
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Green Thumb", "Green Thumb.csproj", "{60E26460-6DEE-969F-8C8F-D5E0733741A5}"
 EndProject
 Global
