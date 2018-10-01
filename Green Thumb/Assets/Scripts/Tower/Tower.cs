@@ -7,15 +7,15 @@ public class Tower : MonoBehaviour
     public Transform gunEnd;
     public GameObject bullet;
     public GameObject[] validTargets;
-    //Vector3 lastPos = Vector3.zero;
-    //Quaternion lookRot;
     public GameObject curTarget;
     float closestDist = 0.0f;
-    //public float turnSpeed = 3.0f;
+    bool firing;
+    Rigidbody rb;
 
     // Use this for initialization
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         validTargets = GameObject.FindGameObjectsWithTag("Enemy");//put all enemies into array
         curTarget = null;
 
@@ -39,6 +39,8 @@ public class Tower : MonoBehaviour
     {
         if (curTarget == null)
         {
+            firing = false;
+            rb.freezeRotation = true;
             Debug.Log("curtarget = null");
             validTargets = GameObject.FindGameObjectsWithTag("Enemy");//put all enemies into array
             if (validTargets.Length != 0)
@@ -56,15 +58,8 @@ public class Tower : MonoBehaviour
             }
         }
 		if (curTarget != null) {
-            //if(lastPos != curTarget.transform.position)
-            //{
-            //    lastPos = curTarget.transform.position;
-            //    lookRot = Quaternion.LookRotation(lastPos - transform.position);
-            //}
-            //if(transform.rotation != lookRot)
-            //{
-            //    transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRot, turnSpeed * Time.deltaTime);
-            //}
+            firing = true;
+            rb.freezeRotation = false;
             Debug.Log("curtarget != null");
             Vector3 targetPos = new Vector3(curTarget.transform.position.x, transform.position.y, curTarget.transform.position.z);//target vector where enemy currently is
             transform.LookAt(targetPos);//aim turret at enemy
@@ -77,15 +72,9 @@ public class Tower : MonoBehaviour
             StartCoroutine("Fire");
     }
 
-    void OnTriggerExit(Collider col)
-    {
-        if (col.gameObject.tag == "Enemy")
-            StopCoroutine("Fire");
-    }
-
     IEnumerator Fire()
     {
-        while (true)
+        while (firing)
         {
             Instantiate(bullet, gunEnd.position, gunEnd.rotation);
             yield return new WaitForSeconds(2);

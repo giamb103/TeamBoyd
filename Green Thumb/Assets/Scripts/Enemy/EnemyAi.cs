@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class EnemyAi : MonoBehaviour
 {
-    //public int damage = 5;
-    //public int health = 15;
+    public int damage = 5;
+    public int health;
     public float speed = 2.0f;
     private Rigidbody rb;
     public string targetTag = "";
+    int enemyHealth;
+    PlantScript plant = new PlantScript();
 
     // Use this for initialization
     void Start()
     {
+        health = 15;
         rb = GetComponent<Rigidbody>();
         if (targetTag == null)
             targetTag = "Plant";
@@ -21,6 +24,8 @@ public class EnemyAi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (health <= 0)
+            Destroy(gameObject);
         Vector3 start = transform.position;
         GameObject[] validTargets = GameObject.FindGameObjectsWithTag(targetTag);//array of all plants
         GameObject curTarget = null;
@@ -46,14 +51,26 @@ public class EnemyAi : MonoBehaviour
     {
         if (col.gameObject.tag == "Plant")
         {
-            Debug.Log("Collided");
-            Destroy(col.gameObject);
+            enemyHealth = plant.getHealth();
+            enemyHealth -= damage;
+            plant.setHealth(enemyHealth);
+
         }
         
         if(col.gameObject.tag == "Bullet")
         {
-            Debug.Log("Collided");
-            Destroy(gameObject);
+            health -= 5;
+        }
+    }
+
+    void onTriggerStay(Collider col)
+    {
+        if (col.gameObject.tag == "Plant")
+        {
+            enemyHealth = plant.getHealth();
+            enemyHealth -= damage;
+            plant.setHealth(enemyHealth);
+
         }
     }
 }

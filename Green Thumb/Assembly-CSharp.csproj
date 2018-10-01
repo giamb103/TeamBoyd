@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\Game Scripts\DayNight.cs" />
      <Compile Include="Assets\Scripts\Game Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Game Scripts\SetSunLight.cs" />
+     <Compile Include="Assets\Scripts\PlantScript.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\SelfDestruct.cs" />
      <Compile Include="Assets\Scripts\Timer.cs" />

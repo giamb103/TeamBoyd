@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 54008900980553516}
   - component: {fileID: 114555802167420998}
   - component: {fileID: 65824831153415176}
+  - component: {fileID: 114940313617020670}
   m_Layer: 0
   m_Name: Seed
   m_TagString: Plant
@@ -135,3 +136,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theTag: Enemy
+--- !u!114 &114940313617020670
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1627601690865248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d11bb19372608641ad7306bf2b35c4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0

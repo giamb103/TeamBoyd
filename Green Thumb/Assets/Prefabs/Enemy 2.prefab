@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 23933133018926212}
   - component: {fileID: 54166890528717636}
   - component: {fileID: 114861842794526284}
-  - component: {fileID: 114631129085090366}
   - component: {fileID: 136102407979868942}
   m_Layer: 0
   m_Name: Enemy 2
@@ -100,18 +99,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &114631129085090366
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1982712837241300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e692626245f58f4fa6370f914052423, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  theTag: Bullet
 --- !u!114 &114861842794526284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -123,8 +110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f59333f0dc49241b64c846e660bc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 5
+  health: 0
   speed: 0.05
-  targetTag: Plant
+  targetTag: Turret
 --- !u!136 &136102407979868942
 CapsuleCollider:
   m_ObjectHideFlags: 1
