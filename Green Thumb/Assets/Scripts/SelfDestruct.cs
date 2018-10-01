@@ -17,7 +17,7 @@ public class SelfDestruct : MonoBehaviour
 
     }
 
-    void OnCollision(Collision c)
+    void OnTriggerEnter(Collider c)
     {
         if (c.gameObject.tag == theTag)
         {
