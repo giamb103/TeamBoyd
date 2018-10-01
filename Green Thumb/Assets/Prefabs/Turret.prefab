@@ -266,6 +266,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunEnd: {fileID: 4379699631395114}
   bullet: {fileID: 1330035658025804, guid: 921e2cfbe77bce34190fbcb24d8925b9, type: 2}
+  validTargets: []
+  curTarget: {fileID: 1215747435672050, guid: fa40ab652029a35469f0da7d4592ba78, type: 2}
+  turnSpeed: 3
 --- !u!135 &135249414916870826
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -20,12 +20,14 @@ public class Bullet : MonoBehaviour
 
     }
 
-    void OnCollision(Collision col)
+    void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "Enemy")
         {
             Debug.Log("Collided");
             Destroy(col.gameObject);
+            Destroy(gameObject);
         }
+
     }
 }

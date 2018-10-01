@@ -8,18 +8,21 @@ public class EnemyAi : MonoBehaviour
     //public int health = 15;
     public float speed = 2.0f;
     private Rigidbody rb;
+    public string targetTag = "";
 
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        if (targetTag == null)
+            targetTag = "Plant";
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector3 start = transform.position;
-        GameObject[] validTargets = GameObject.FindGameObjectsWithTag("Plant");//array of all plants
+        GameObject[] validTargets = GameObject.FindGameObjectsWithTag(targetTag);//array of all plants
         GameObject curTarget = null;
         float closestDist = 0.0f;
 		if (validTargets.Length != 0) {
@@ -39,7 +42,7 @@ public class EnemyAi : MonoBehaviour
 		}
     }
 
-    void onCollisionStay(Collision col)
+    void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "Plant")
         {
