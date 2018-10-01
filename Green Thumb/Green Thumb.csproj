@@ -97,6 +97,7 @@
     <Compile Include="Assets\Scripts\Timer.cs" />
     <Compile Include="Assets\Scripts\ToolPickup.cs" />
     <Compile Include="Assets\Scripts\Tower\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Tower\BulletDelete.cs" />
     <Compile Include="Assets\Scripts\Tower\Tower.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
