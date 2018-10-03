@@ -8,7 +8,11 @@ public class DirtController : MonoBehaviour {
     public GameObject timer;
     public GameObject tower;
 
+    public Material WateredMaterial;
+    public Material DryMaterial;
+
     private bool hasBeenSeeded = false;
+    private bool hasBeenWatered = false;
 
     private GameObject plantObject;
     private GameObject timerObject;
@@ -32,6 +36,8 @@ public class DirtController : MonoBehaviour {
             {
                 Destroy(plantObject);
                 Destroy(timerObject);
+                gameObject.GetComponent<MeshRenderer>().material = DryMaterial;
+                hasBeenWatered = false;
                 hasBeenSeeded = false;
             }
         }
@@ -43,14 +49,20 @@ public class DirtController : MonoBehaviour {
         //if the player is holding a tool and presses enter and the patch doesn't already have a seed,
         //instantiate a seed and a timer and set hasBeenSeeded to true
 
-        if (collision.gameObject.tag == "Tool" && Input.GetKeyDown(KeyCode.Return) && !hasBeenSeeded)
+        if (collision.gameObject.tag == "SeedBox" && Input.GetKeyDown(KeyCode.Return) && !hasBeenSeeded)
         {
             plantObject = Instantiate(seed, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
-            timerObject = Instantiate(timer, new Vector3(gameObject.transform.position.x - 0.5f, gameObject.transform.position.y + 1, gameObject.transform.position.z), Quaternion.identity);
             hasBeenSeeded = true;
         }
 
-        if(collision.gameObject.tag == "Tool" && Input.GetKeyDown(KeyCode.T) && !hasBeenSeeded)
+        if (collision.gameObject.tag == "WateringCan" && Input.GetKeyDown(KeyCode.Return))
+        {
+            gameObject.GetComponent<MeshRenderer>().material = WateredMaterial;
+            timerObject = Instantiate(timer, new Vector3(gameObject.transform.position.x - 0.5f, gameObject.transform.position.y + 1, gameObject.transform.position.z), Quaternion.identity);
+            hasBeenWatered = true;
+        }
+
+        if (collision.gameObject.tag == "Tool" && Input.GetKeyDown(KeyCode.T) && !hasBeenSeeded)
         {
             defenseTower = Instantiate(tower, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z), Quaternion.identity);
         }

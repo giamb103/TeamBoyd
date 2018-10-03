@@ -9,6 +9,8 @@ TagManager:
   - Plant
   - Turret
   - Bullet
+  - SeedBox
+  - WateringCan
   layers:
   - Default
   - TransparentFX

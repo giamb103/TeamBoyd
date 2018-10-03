@@ -137,3 +137,5 @@ MonoBehaviour:
   seed: {fileID: 1627601690865248, guid: d392935bf3929ab4eab1d228184f488d, type: 2}
   timer: {fileID: 1172914465081240, guid: 5fa06618094b0d845bde17758b3dc625, type: 2}
   tower: {fileID: 1363507973414824, guid: 7c2ca5db964ddc34780439f5cdb7e9d4, type: 2}
+  WateredMaterial: {fileID: 2100000, guid: 168adb1b1c4709c44ac7a39285fd845c, type: 2}
+  DryMaterial: {fileID: 2100000, guid: 13d186ab7bbfcd843b7056532f6d3002, type: 2}
