@@ -268,6 +268,8 @@ MonoBehaviour:
   bullet: {fileID: 1330035658025804, guid: 921e2cfbe77bce34190fbcb24d8925b9, type: 2}
   validTargets: []
   curTarget: {fileID: 0}
+  targetTag: Enemy
+  health: 20
 --- !u!135 &135404441878324888
 SphereCollider:
   m_ObjectHideFlags: 1

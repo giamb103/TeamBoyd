@@ -8,6 +8,8 @@ public class Tower : MonoBehaviour
     public GameObject bullet;
     public GameObject[] validTargets;
     public GameObject curTarget;
+    public string targetTag = "";
+    public int health;
     float closestDist = 0.0f;
     bool firing;
     Rigidbody rb;
@@ -16,7 +18,7 @@ public class Tower : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        validTargets = GameObject.FindGameObjectsWithTag("Enemy");//put all enemies into array
+        validTargets = GameObject.FindGameObjectsWithTag(targetTag);//put all enemies into array
         curTarget = null;
 
         if (validTargets.Length != 0)
@@ -37,12 +39,17 @@ public class Tower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+
         if (curTarget == null)
         {
             firing = false;
             rb.freezeRotation = true;
-            Debug.Log("curtarget = null");
-            validTargets = GameObject.FindGameObjectsWithTag("Enemy");//put all enemies into array
+            //Debug.Log("curtarget = null");
+            validTargets = GameObject.FindGameObjectsWithTag(targetTag);//put all enemies into array
             if (validTargets.Length != 0)
             {
                 for (int i = 0; i < validTargets.Length; i++)
@@ -60,7 +67,7 @@ public class Tower : MonoBehaviour
 		if (curTarget != null) {
             firing = true;
             rb.freezeRotation = false;
-            Debug.Log("curtarget != null");
+            //Debug.Log("curtarget != null");
             Vector3 targetPos = new Vector3(curTarget.transform.position.x, transform.position.y, curTarget.transform.position.z);//target vector where enemy currently is
             transform.LookAt(targetPos);//aim turret at enemy
         }
@@ -68,7 +75,7 @@ public class Tower : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "Enemy")
+        if (col.gameObject.tag == targetTag)
             StartCoroutine("Fire");
     }
 
@@ -79,5 +86,15 @@ public class Tower : MonoBehaviour
             Instantiate(bullet, gunEnd.position, gunEnd.rotation);
             yield return new WaitForSeconds(2);
         }
+    }
+
+    public void setHealth(int h)
+    {
+        health = h;
+    }
+
+    public int getHealth()
+    {
+        return health;
     }
 }

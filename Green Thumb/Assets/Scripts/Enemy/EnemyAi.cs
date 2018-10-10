@@ -10,12 +10,12 @@ public class EnemyAi : MonoBehaviour
     private Rigidbody rb;
     public string targetTag = "";
     int enemyHealth;
-    PlantScript plant = new PlantScript();
+    PlantScript plant;
+    Tower tower;
 
     // Use this for initialization
     void Start()
     {
-        health = 15;
         rb = GetComponent<Rigidbody>();
         if (targetTag == null)
             targetTag = "Plant";
@@ -25,7 +25,9 @@ public class EnemyAi : MonoBehaviour
     void Update()
     {
         if (health <= 0)
+        {
             Destroy(gameObject);
+        }
         Vector3 start = transform.position;
         GameObject[] validTargets = GameObject.FindGameObjectsWithTag(targetTag);//array of all plants
         GameObject curTarget = null;
@@ -51,13 +53,26 @@ public class EnemyAi : MonoBehaviour
     {
         if (col.gameObject.tag == "Plant")
         {
+            plant = col.gameObject.GetComponent<PlantScript>();
+
             enemyHealth = plant.getHealth();
             enemyHealth -= damage;
             plant.setHealth(enemyHealth);
 
         }
-        
-        if(col.gameObject.tag == "Bullet")
+
+        if (col.gameObject.tag == "Turret")
+        {
+            Debug.Log("Turret");
+            tower = col.gameObject.GetComponent<Tower>();
+
+            enemyHealth = tower.getHealth();
+            enemyHealth -= damage;
+            tower.setHealth(enemyHealth);
+
+        }
+
+        if (col.gameObject.tag == "Bullet")
         {
             health -= 5;
         }
@@ -70,6 +85,15 @@ public class EnemyAi : MonoBehaviour
             enemyHealth = plant.getHealth();
             enemyHealth -= damage;
             plant.setHealth(enemyHealth);
+
+        }
+
+        if (col.gameObject.tag == "Turret")
+        {
+            Debug.Log("Hit Turret");
+            enemyHealth = tower.getHealth();
+            enemyHealth -= damage;
+            tower.setHealth(enemyHealth);
 
         }
     }

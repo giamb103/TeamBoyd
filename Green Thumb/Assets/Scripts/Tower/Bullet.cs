@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
     {
         if (col.gameObject.tag == "Enemy")
         {
-            Debug.Log("Collided");
+            //Debug.Log("Collided");
             Destroy(gameObject);
         }
 
