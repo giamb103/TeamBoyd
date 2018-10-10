@@ -5,13 +5,23 @@ using UnityEngine;
 public class DirtController : MonoBehaviour {
 
     public GameObject seed;
+    public GameObject medPlant;
+    public GameObject largePlant;
+    public GameObject fruit;
     public GameObject timer;
     public GameObject tower;
 
+    public Material WateredMaterial;
+    public Material DryMaterial;
+
     private bool hasBeenSeeded = false;
+    private bool hasBeenWatered = false;
+    private bool hasGrown = false;
+    private bool isBig = false;
 
     private GameObject plantObject;
     private GameObject timerObject;
+    private GameObject timerObject2;
     private GameObject defenseTower;
 
     // Use this for initialization
@@ -22,37 +32,85 @@ public class DirtController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        /*checks if there's a timer and if there is, checks if it's zero
-        if so, it deletes the seed gameobject and the timer, and sets hasBeenSeeded to false 
-        so that the dirt patch can be re-seeded*/
+        //the logic behind the plant cycle
 
         if (timerObject != null)
         {
+            //if the first timer has run out
             if (timerObject.GetComponent<Timer>().timer < 0f)
             {
-                Destroy(plantObject);
-                Destroy(timerObject);
-                hasBeenSeeded = false;
+                //if the plant is large, instantiate the fruit and reset the dirt patch
+                if (isBig)
+                {
+                    Destroy(timerObject);
+                    Destroy(plantObject);
+                    gameObject.GetComponent<MeshRenderer>().material = DryMaterial;
+                    Instantiate(fruit, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f, gameObject.transform.position.z - 1.25f), Quaternion.identity);
+                    hasBeenSeeded = false;
+                    hasGrown = false;
+                    isBig = false;
+                }
+                //make the dirt dry and start timer 2 to wait to get watered again
+                else
+                {
+                    Destroy(timerObject);
+                    gameObject.GetComponent<MeshRenderer>().material = DryMaterial;
+                    hasBeenWatered = false;
+                    timerObject2 = Instantiate(timer, new Vector3(gameObject.transform.position.x - 0.5f, gameObject.transform.position.y + 1, gameObject.transform.position.z), Quaternion.identity);
+                }
             }
         }
-	}
+
+        //if the second "dry dirt" timer has run out
+        if (timerObject2 != null)
+        {
+            //if they just let the timer run out, destroy the seed and timer
+            if (timerObject2.GetComponent<Timer>().timer < 0f && !hasBeenWatered && !hasGrown)
+            {
+                Destroy(timerObject2);
+                Destroy(plantObject);
+            }
+            //if they watered the seed, make the plant watered, grow the plant, and start a new timer for next cycle phase
+            else if (hasBeenWatered && !hasGrown) 
+            {
+                Destroy(timerObject2);
+                Destroy(plantObject);
+                plantObject = Instantiate(medPlant, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
+                hasGrown = true;
+            }
+            //if they watered the medium plant, make the plant watered, grow the plant, and start a new timer for the next cycle phase.
+            else if (hasBeenWatered && hasGrown)
+            {
+                Destroy(timerObject2);
+                Destroy(plantObject);
+                plantObject = Instantiate(largePlant, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
+                isBig = true;
+            }
+        }
+    }
 
     private void OnCollisionStay(Collision collision)
     {
-
-        //if the player is holding a tool and presses enter and the patch doesn't already have a seed,
-        //instantiate a seed and a timer and set hasBeenSeeded to true
-
-        if (collision.gameObject.tag == "Tool" && Input.GetKeyDown(KeyCode.Return) && !hasBeenSeeded)
+        //if they use a seed blox, instantiate a seed
+        if (collision.gameObject.tag == "SeedBox" && Input.GetKeyDown(KeyCode.Return) && !hasBeenSeeded)
         {
             plantObject = Instantiate(seed, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
-            timerObject = Instantiate(timer, new Vector3(gameObject.transform.position.x - 0.5f, gameObject.transform.position.y + 1, gameObject.transform.position.z), Quaternion.identity);
             hasBeenSeeded = true;
         }
 
-        if(collision.gameObject.tag == "Tool" && Input.GetKeyDown(KeyCode.T) && !hasBeenSeeded)
+        //if they use the watering can, water the plant and start the first timer
+        if (collision.gameObject.tag == "WateringCan" && Input.GetKeyDown(KeyCode.Return))
         {
-            defenseTower = Instantiate(tower, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z), Quaternion.identity);
+            gameObject.GetComponent<MeshRenderer>().material = WateredMaterial;
+            timerObject = Instantiate(timer, new Vector3(gameObject.transform.position.x - 0.5f, gameObject.transform.position.y + 1, gameObject.transform.position.z), Quaternion.identity);
+            hasBeenWatered = true;
+        }
+
+        //this does nothing right now cause no objects are tools soooo
+        //TODO: make a tool to set towers
+        if (collision.gameObject.tag == "Tool" && Input.GetKeyDown(KeyCode.Return) && !hasBeenSeeded)
+        {
+            Instantiate(tower, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z), Quaternion.identity);
         }
     }
 
