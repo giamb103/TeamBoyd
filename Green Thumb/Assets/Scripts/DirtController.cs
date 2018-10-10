@@ -99,7 +99,7 @@ public class DirtController : MonoBehaviour {
         }
 
         //if they use the watering can, water the plant and start the first timer
-        if (collision.gameObject.tag == "WateringCan" && Input.GetKeyDown(KeyCode.Return))
+        if (collision.gameObject.tag == "WateringCan" && Input.GetKeyDown(KeyCode.Return) && !hasBeenWatered)
         {
             gameObject.GetComponent<MeshRenderer>().material = WateredMaterial;
             timerObject = Instantiate(timer, new Vector3(gameObject.transform.position.x - 0.5f, gameObject.transform.position.y + 1, gameObject.transform.position.z), Quaternion.identity);
