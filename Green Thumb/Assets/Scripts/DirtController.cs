@@ -45,7 +45,7 @@ public class DirtController : MonoBehaviour {
                     Destroy(timerObject);
                     Destroy(plantObject);
                     gameObject.GetComponent<MeshRenderer>().material = DryMaterial;
-                    Instantiate(fruit, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f, gameObject.transform.position.z - 1.25f), Quaternion.identity);
+                    Instantiate(fruit, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.1f, gameObject.transform.position.z - 1.25f), Quaternion.identity);
                     hasBeenSeeded = false;
                     hasGrown = false;
                     isBig = false;
@@ -75,6 +75,7 @@ public class DirtController : MonoBehaviour {
             {
                 Destroy(timerObject2);
                 Destroy(plantObject);
+                Debug.Log("make med plant");
                 plantObject = Instantiate(medPlant, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
                 hasGrown = true;
             }
@@ -107,8 +108,7 @@ public class DirtController : MonoBehaviour {
         }
 
         //this does nothing right now cause no objects are tools soooo
-        //TODO: make a tool to set towers
-        if (collision.gameObject.tag == "Tool" && Input.GetKeyDown(KeyCode.Return) && !hasBeenSeeded)
+        if (collision.gameObject.tag == "TowerPlacer" && Input.GetKeyDown(KeyCode.Return) && !hasBeenSeeded)
         {
             Instantiate(tower, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z), Quaternion.identity);
         }
