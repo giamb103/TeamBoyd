@@ -91,6 +91,7 @@
     <Compile Include="Assets\Scripts\DirtController.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyAi.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemySpawning.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Health Display.cs" />
     <Compile Include="Assets\Scripts\Game Scripts\DayNight.cs" />
     <Compile Include="Assets\Scripts\Game Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Game Scripts\SetSunLight.cs" />

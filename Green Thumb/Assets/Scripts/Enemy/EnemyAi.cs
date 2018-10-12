@@ -12,6 +12,7 @@ public class EnemyAi : MonoBehaviour
     int enemyHealth;
     PlantScript plant;
     Tower tower;
+    public GameObject health_text;
 
     // Use this for initialization
     void Start()
@@ -24,6 +25,7 @@ public class EnemyAi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        health_text.GetComponent<TextMesh>().text = health.ToString();
         if (health <= 0)
         {
             Destroy(gameObject);
@@ -43,8 +45,8 @@ public class EnemyAi : MonoBehaviour
 			}
 		}
 		if (curTarget != null) {
-	        Vector3 end = curTarget.transform.position;//get the posiiton of closest plant
-	        Vector3 newPosition = Vector3.MoveTowards(start, end, speed);//move enemy towards plant
+	        Vector3 end = curTarget.transform.position;//get the posiiton of closest target
+	        Vector3 newPosition = Vector3.MoveTowards(start, end, speed);//move enemy towards targe
 			rb.MovePosition(newPosition);
 		}
     }
