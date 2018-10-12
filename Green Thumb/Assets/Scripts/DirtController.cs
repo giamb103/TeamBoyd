@@ -111,6 +111,7 @@ public class DirtController : MonoBehaviour
         }
 
         //TODO: check how many towers you have
+        //TODO: make the space unfillable
         if (collision.gameObject.tag == "TowerPlacer" && Input.GetKeyDown(KeyCode.Return) && !hasBeenSeeded)
         {
             Instantiate(tower, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z), Quaternion.identity);

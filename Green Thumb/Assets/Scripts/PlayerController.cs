@@ -4,12 +4,23 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //public Rigidbody rigid;
 
-    public int movementSpeed; 
+    public int movementSpeed;
+
+    private Vector3 prev;
+    private Vector3 curr;
 
     void Update()
     {
 
+
+        
+    }
+
+    private void FixedUpdate()
+    {
+        prev = gameObject.transform.position;
         //you use arrow keys/wasd and you face the way you're walking 
 
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
@@ -22,5 +33,8 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.Translate(movement * movementSpeed * Time.deltaTime, Space.World);
+        curr = gameObject.transform.position;
+
+        //rigid.velocity = (curr - prev) / Time.deltaTime;
     }
 }
