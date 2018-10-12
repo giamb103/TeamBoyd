@@ -95,6 +95,7 @@ public class DirtController : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
         //if they use a seed blox, instantiate a seed
+        //TODO: check how many seeds you have
         if (collision.gameObject.tag == "SeedBox" && Input.GetKeyDown(KeyCode.Return) && !hasBeenSeeded)
         {
             plantObject = Instantiate(seed, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
@@ -109,9 +110,8 @@ public class DirtController : MonoBehaviour
             hasBeenWatered = true;
         }
 
-        //this does nothing right now cause no objects are tools soooo
-        //TODO: make a tool to set towers
-        if (collision.gameObject.tag == "Tool" && Input.GetKeyDown(KeyCode.Return) && !hasBeenSeeded)
+        //TODO: check how many towers you have
+        if (collision.gameObject.tag == "TowerPlacer" && Input.GetKeyDown(KeyCode.Return) && !hasBeenSeeded)
         {
             Instantiate(tower, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z), Quaternion.identity);
         }

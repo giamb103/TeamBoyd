@@ -11,6 +11,8 @@ TagManager:
   - Bullet
   - SeedBox
   - WateringCan
+  - New tag
+  - TowerPlacer
   layers:
   - Default
   - TransparentFX
