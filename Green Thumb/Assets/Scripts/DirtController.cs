@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DirtController : MonoBehaviour {
+public class DirtController : MonoBehaviour
+{
 
     public GameObject seed;
     public GameObject medPlant;
@@ -25,12 +26,14 @@ public class DirtController : MonoBehaviour {
     private GameObject defenseTower;
 
     // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
         //the logic behind the plant cycle
 
@@ -45,7 +48,7 @@ public class DirtController : MonoBehaviour {
                     Destroy(timerObject);
                     Destroy(plantObject);
                     gameObject.GetComponent<MeshRenderer>().material = DryMaterial;
-                    Instantiate(fruit, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.1f, gameObject.transform.position.z - 1.25f), Quaternion.identity);
+                    Instantiate(fruit, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f, gameObject.transform.position.z - 1.25f), Quaternion.identity);
                     hasBeenSeeded = false;
                     hasGrown = false;
                     isBig = false;
@@ -71,11 +74,10 @@ public class DirtController : MonoBehaviour {
                 Destroy(plantObject);
             }
             //if they watered the seed, make the plant watered, grow the plant, and start a new timer for next cycle phase
-            else if (hasBeenWatered && !hasGrown) 
+            else if (hasBeenWatered && !hasGrown)
             {
                 Destroy(timerObject2);
                 Destroy(plantObject);
-                Debug.Log("make med plant");
                 plantObject = Instantiate(medPlant, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
                 hasGrown = true;
             }
@@ -108,7 +110,8 @@ public class DirtController : MonoBehaviour {
         }
 
         //this does nothing right now cause no objects are tools soooo
-        if (collision.gameObject.tag == "TowerPlacer" && Input.GetKeyDown(KeyCode.Return) && !hasBeenSeeded)
+        //TODO: make a tool to set towers
+        if (collision.gameObject.tag == "Tool" && Input.GetKeyDown(KeyCode.Return) && !hasBeenSeeded)
         {
             Instantiate(tower, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z), Quaternion.identity);
         }
