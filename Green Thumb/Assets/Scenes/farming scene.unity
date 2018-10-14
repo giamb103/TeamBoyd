@@ -1101,10 +1101,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4299068994145230, guid: 4098c2a94e799a04fac446bcd687e792, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.19999999
-      objectReference: {fileID: 0}
     - target: {fileID: 1538810886652758, guid: 4098c2a94e799a04fac446bcd687e792, type: 2}
       propertyPath: m_Name
       value: Dirt (1)

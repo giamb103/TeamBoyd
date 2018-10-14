@@ -12,6 +12,8 @@ public class DirtController : MonoBehaviour
     public GameObject timer;
     public GameObject tower;
 
+    //public GameObject gm;
+
     public Material WateredMaterial;
     public Material DryMaterial;
 
@@ -19,6 +21,7 @@ public class DirtController : MonoBehaviour
     private bool hasBeenWatered = false;
     private bool hasGrown = false;
     private bool isBig = false;
+    private bool hasRotated = false;
 
     private GameObject plantObject;
     private GameObject timerObject;
@@ -78,7 +81,8 @@ public class DirtController : MonoBehaviour
             {
                 Destroy(timerObject2);
                 Destroy(plantObject);
-                plantObject = Instantiate(medPlant, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
+                plantObject = Instantiate(medPlant, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.75f, gameObject.transform.position.z), Quaternion.identity);
+                plantObject.transform.rotation *= Quaternion.Euler(0, 90, 0);
                 hasGrown = true;
             }
             //if they watered the medium plant, make the plant watered, grow the plant, and start a new timer for the next cycle phase.
@@ -87,6 +91,7 @@ public class DirtController : MonoBehaviour
                 Destroy(timerObject2);
                 Destroy(plantObject);
                 plantObject = Instantiate(largePlant, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
+                plantObject.transform.rotation *= Quaternion.Euler(0, 90, 0);
                 isBig = true;
             }
         }
@@ -95,10 +100,10 @@ public class DirtController : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
         //if they use a seed blox, instantiate a seed
-        //TODO: check how many seeds you have
-        if (collision.gameObject.tag == "SeedBox" && Input.GetKeyDown(KeyCode.Return) && !hasBeenSeeded)
+        if (collision.gameObject.tag == "SeedBox" && Input.GetKeyDown(KeyCode.Return) && !hasBeenSeeded) // && gm.seeds > 0
         {
             plantObject = Instantiate(seed, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
+            plantObject.transform.rotation *= Quaternion.Euler(0, 90, 0);
             hasBeenSeeded = true;
         }
 
@@ -110,11 +115,12 @@ public class DirtController : MonoBehaviour
             hasBeenWatered = true;
         }
 
-        //TODO: check how many towers you have
         //TODO: make the space unfillable
-        if (collision.gameObject.tag == "TowerPlacer" && Input.GetKeyDown(KeyCode.Return) && !hasBeenSeeded)
+        if (collision.gameObject.tag == "TowerPlacer" && Input.GetKeyDown(KeyCode.Return) && !hasBeenSeeded) //&& gm.turrets > 0
         {
             Instantiate(tower, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z), Quaternion.identity);
+            hasBeenSeeded = true;
+            hasBeenWatered = true;
         }
     }
 
