@@ -18,10 +18,10 @@ public class ToolPickup : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("in the ontriggerstay");
+       // Debug.Log("in the ontriggerstay");
         if (other.tag == "Player" && !hasBeenGrabbed && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("picking up object");
+            //Debug.Log("picking up object");
             gameObject.transform.parent = other.transform;
             gameObject.transform.position = other.transform.position;
             gameObject.transform.rotation = other.transform.rotation;
@@ -31,7 +31,7 @@ public class ToolPickup : MonoBehaviour {
 
         else if (other.tag == "Player" && hasBeenGrabbed && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("putting down object");
+            //Debug.Log("putting down object");
             gameObject.transform.parent = null;
             Vector3 newpos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 1, gameObject.transform.position.z);
             gameObject.transform.position = newpos;
