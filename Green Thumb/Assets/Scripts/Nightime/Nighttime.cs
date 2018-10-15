@@ -12,10 +12,16 @@ public class Nighttime : MonoBehaviour {
     public Canvas Shop;
     public Canvas Settings;
     public Canvas MainMenu;
+    public Canvas Night;
 
     // Use this for initialization
     void Start ()
     {
+        MainMenu.enabled = false;
+        Settings.enabled = false;
+        Shop.enabled = false;
+        Night.enabled = true;
+
         shop.onClick.AddListener(onClickShop);
         nextDay.onClick.AddListener(onClicknextDay);
         menu.onClick.AddListener(onClickMenu);
@@ -35,16 +41,25 @@ public class Nighttime : MonoBehaviour {
 
     void onClickShop()
     {
+        MainMenu.enabled = false;
+        Settings.enabled = false;
         Shop.enabled = true;
+        Night.enabled = false;
     }
 
     void onClickMenu()
     {
         MainMenu.enabled = true;
+        Settings.enabled = false;
+        Shop.enabled = false;
+        Night.enabled = false;
     }
 
     void onClickSettings()
     {
+        MainMenu.enabled = false;
         Settings.enabled = true;
+        Shop.enabled = false;
+        Night.enabled = false;
     }
 }
