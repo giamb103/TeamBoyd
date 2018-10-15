@@ -40,7 +40,7 @@ Transform:
   m_GameObject: {fileID: 1538810886652758}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4, y: 0.11, z: 4}
-  m_LocalScale: {x: 2, y: 0.2, z: 2}
+  m_LocalScale: {x: 2, y: 0.19999999, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -134,11 +134,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2c5cd34e48a2ac48a67fd1c72337b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seed: {fileID: 1627601690865248, guid: d392935bf3929ab4eab1d228184f488d, type: 2}
-  medPlant: {fileID: 1801569029847288, guid: 6c7fb87adce1e1943b615c116d3a2728, type: 2}
-  largePlant: {fileID: 1328650396783374, guid: 3ae46e74b5d0a114e8a2b9cb71cdca6f, type: 2}
-  fruit: {fileID: 1386358833118740, guid: d6228900c44aa69469e2592c11003a0d, type: 2}
+  seed: {fileID: 100008, guid: c95e077c4f1b17e4b9c212254e72d900, type: 3}
+  medPlant: {fileID: 100006, guid: c95e077c4f1b17e4b9c212254e72d900, type: 3}
+  largePlant: {fileID: 100002, guid: c95e077c4f1b17e4b9c212254e72d900, type: 3}
+  fruit: {fileID: 1386358833118740, guid: 2636df4ee16ccad4a8a3ae3781d83c71, type: 2}
   timer: {fileID: 1172914465081240, guid: 5fa06618094b0d845bde17758b3dc625, type: 2}
   tower: {fileID: 1491096656266510, guid: 7c2ca5db964ddc34780439f5cdb7e9d4, type: 2}
-  WateredMaterial: {fileID: 2100000, guid: 168adb1b1c4709c44ac7a39285fd845c, type: 2}
+  WateredMaterial: {fileID: 2100000, guid: 68ca2b146dc595b49921bb9e293533be, type: 2}
   DryMaterial: {fileID: 2100000, guid: 13d186ab7bbfcd843b7056532f6d3002, type: 2}

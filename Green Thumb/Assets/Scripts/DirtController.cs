@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DirtController : MonoBehaviour {
+public class DirtController : MonoBehaviour
+{
 
     public GameObject seed;
     public GameObject medPlant;
@@ -11,6 +12,8 @@ public class DirtController : MonoBehaviour {
     public GameObject timer;
     public GameObject tower;
 
+    //public GameObject gm;
+
     public Material WateredMaterial;
     public Material DryMaterial;
 
@@ -18,6 +21,7 @@ public class DirtController : MonoBehaviour {
     private bool hasBeenWatered = false;
     private bool hasGrown = false;
     private bool isBig = false;
+    private bool hasRotated = false;
 
     private GameObject plantObject;
     private GameObject timerObject;
@@ -25,12 +29,14 @@ public class DirtController : MonoBehaviour {
     private GameObject defenseTower;
 
     // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
         //the logic behind the plant cycle
 
@@ -71,11 +77,12 @@ public class DirtController : MonoBehaviour {
                 Destroy(plantObject);
             }
             //if they watered the seed, make the plant watered, grow the plant, and start a new timer for next cycle phase
-            else if (hasBeenWatered && !hasGrown) 
+            else if (hasBeenWatered && !hasGrown)
             {
                 Destroy(timerObject2);
                 Destroy(plantObject);
-                plantObject = Instantiate(medPlant, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
+                plantObject = Instantiate(medPlant, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.75f, gameObject.transform.position.z), Quaternion.identity);
+                plantObject.transform.rotation *= Quaternion.Euler(0, 90, 0);
                 hasGrown = true;
             }
             //if they watered the medium plant, make the plant watered, grow the plant, and start a new timer for the next cycle phase.
@@ -84,6 +91,7 @@ public class DirtController : MonoBehaviour {
                 Destroy(timerObject2);
                 Destroy(plantObject);
                 plantObject = Instantiate(largePlant, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
+                plantObject.transform.rotation *= Quaternion.Euler(0, 90, 0);
                 isBig = true;
             }
         }
@@ -92,25 +100,27 @@ public class DirtController : MonoBehaviour {
     private void OnCollisionStay(Collision collision)
     {
         //if they use a seed blox, instantiate a seed
-        if (collision.gameObject.tag == "SeedBox" && Input.GetKeyDown(KeyCode.Return) && !hasBeenSeeded)
+        if (collision.gameObject.tag == "SeedBox" && Input.GetKeyDown(KeyCode.Return) && !hasBeenSeeded) // && gm.seeds > 0
         {
             plantObject = Instantiate(seed, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
+            plantObject.transform.rotation *= Quaternion.Euler(0, 90, 0);
             hasBeenSeeded = true;
         }
 
         //if they use the watering can, water the plant and start the first timer
-        if (collision.gameObject.tag == "WateringCan" && Input.GetKeyDown(KeyCode.Return) && !hasBeenWatered)
+        if (collision.gameObject.tag == "WateringCan" && Input.GetKeyDown(KeyCode.Return) && !hasBeenWatered && hasBeenSeeded)
         {
             gameObject.GetComponent<MeshRenderer>().material = WateredMaterial;
             timerObject = Instantiate(timer, new Vector3(gameObject.transform.position.x - 0.5f, gameObject.transform.position.y + 1, gameObject.transform.position.z), Quaternion.identity);
             hasBeenWatered = true;
         }
 
-        //this does nothing right now cause no objects are tools soooo
-        //TODO: make a tool to set towers
-        if (collision.gameObject.tag == "Tool" && Input.GetKeyDown(KeyCode.Return) && !hasBeenSeeded)
+        //TODO: make the space unfillable
+        if (collision.gameObject.tag == "TowerPlacer" && Input.GetKeyDown(KeyCode.Return) && !hasBeenSeeded) //&& gm.turrets > 0
         {
             Instantiate(tower, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z), Quaternion.identity);
+            hasBeenSeeded = true;
+            hasBeenWatered = true;
         }
     }
 
