@@ -55,11 +55,17 @@
      <Compile Include="Assets\Scripts\DirtController.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyAi.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemySpawning.cs" />
+     <Compile Include="Assets\Scripts\Enemy\Health Display.cs" />
+     <Compile Include="Assets\Scripts\Game Scripts\Cycle.cs" />
      <Compile Include="Assets\Scripts\Game Scripts\DayNight.cs" />
      <Compile Include="Assets\Scripts\Game Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Game Scripts\SetSunLight.cs" />
+     <Compile Include="Assets\Scripts\Nightime\Main Menu.cs" />
+     <Compile Include="Assets\Scripts\Nightime\Nighttime.cs" />
+     <Compile Include="Assets\Scripts\Nightime\Shop.cs" />
      <Compile Include="Assets\Scripts\PlantScript.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\SellBox.cs" />
      <Compile Include="Assets\Scripts\Timer.cs" />
      <Compile Include="Assets\Scripts\ToolPickup.cs" />
      <Compile Include="Assets\Scripts\Tower\Bullet.cs" />

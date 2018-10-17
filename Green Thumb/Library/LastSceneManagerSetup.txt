@@ -1,8 +1,1 @@
-sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/NEW ULTIMATE COMBAT SCENE.unity
-=======
-- path: Assets/Scenes/Shop.unity
->>>>>>> 0f27cde2ae566afd928ab0cc9d96c64bb89b1d80
-  isLoaded: 1
-  isActive: 1
+sceneSetups: []
